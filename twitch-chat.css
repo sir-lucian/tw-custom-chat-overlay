@@ -5,7 +5,6 @@ html {
     overflow: hidden;
     background-color: rgba(0,0,0,0);
     font-family: 'IBM Plex Sans Thai', sans-serif;
-    zoom: 150%;
 }
 
 .colon {
@@ -166,7 +165,7 @@ html {
     position: absolute !important;
     top: 0px;
     left: 0px;
-    transform: translate(-50%, -40%) scale(125%);
+    transform: translate(-50%, -45%) scale(115%);
 }
 
 .badge {
@@ -179,8 +178,8 @@ html {
 }
 
 img.badge {
-    -webkit-filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));
-    filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));
+    -webkit-filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.3));
+    filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.3));
 }
 
 .username_box {
