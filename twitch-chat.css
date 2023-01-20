@@ -1,0 +1,226 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=IBM+Plex+Sans+Thai&display=swap');
+
+html {
+    height: 100%;
+    overflow: hidden;
+    background-color: rgba(0,0,0,0);
+    font-family: 'IBM Plex Sans Thai', sans-serif;
+    zoom: 150%;
+}
+
+.colon {
+    display: none;
+}
+
+#log {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+/* Message Box */
+
+.wrapper {
+    position: relative;
+    margin: 0.5rem 5px 0 25px;
+    padding: 0.25rem 0.75rem;
+    float: right;
+    clear: right;
+    background: rgba(0, 0, 0, 0.75); /* Normal chatter background color -- Edit Here */
+    border-right: 10px solid white;
+}
+
+.wrapper-sub {
+    position: relative;
+    margin: 0.5rem 5px 0 25px;
+    padding: 0.25rem 0.75rem;
+    float: right;
+    clear: right;
+    background: rgba(255, 255, 255, 0.75); /* Subscriber background color -- Edit Here */
+    border-right: 10px solid white;
+}
+
+.wrapper-vip {
+    position: relative;
+    margin: 0.5rem 5px 0 25px;
+    padding: 0.25rem 0.75rem;
+    float: right;
+    clear: right;
+    background: rgba(224, 5, 185, 0.75); /* VIP background color -- Edit Here */
+    border-right: 10px solid white;
+}
+
+.wrapper-mod {
+    position: relative;
+    margin: 0.5rem 5px 0 25px;
+    padding: 0.25rem 0.75rem;
+    float: right;
+    clear: right;
+    background: rgba(28, 185, 106, 0.75); /* Moderator background color -- Edit Here */
+    border-right: 10px solid white;
+}
+
+.wrapper-streamer {
+    position: relative;
+    margin: 0.5rem 5px 0 25px;
+    padding: 0.25rem 0.75rem;
+    float: right;
+    clear: right;
+    background: rgba(233, 26, 23, 0.75); /* Streamer background color -- Edit Here */
+    border-right: 10px solid white;
+}
+
+/* Message Box Bottom Left Triangle */
+
+.wrapper:before {
+    content: "";
+    position: absolute;
+    right: 100%;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-top: 20px solid transparent;
+    border-right: 20px solid rgba(0,0,0,0.75); /* Normal chatter background color -- Edit Here */
+    border-bottom: 0px solid transparent;
+}
+
+.wrapper-sub:before {
+    content: "";
+    position: absolute;
+    right: 100%;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-top: 20px solid transparent;
+    border-right: 20px solid rgba(255,255,255,0.75); /* Subscriber background color -- Edit Here */
+    border-bottom: 0px solid transparent;
+}
+
+.wrapper-vip:before {
+    content: "";
+    position: absolute;
+    right: 100%;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-top: 20px solid transparent;
+    border-right: 20px solid rgba(224, 5, 185, 0.75); /* VIP background color -- Edit Here */
+    border-bottom: 0px solid transparent;
+}
+
+.wrapper-mod:before {
+    content: "";
+    position: absolute;
+    right: 100%;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-top: 20px solid transparent;
+    border-right: 20px solid rgba(28, 185, 106, 0.75); /* Moderator background color -- Edit Here */
+    border-bottom: 0px solid transparent;
+}
+
+.wrapper-streamer:before {
+    content: "";
+    position: absolute;
+    right: 100%;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-top: 20px solid transparent;
+    border-right: 20px solid rgba(233, 26, 23, 0.75); /* Streamer background color -- Edit Here */
+    border-bottom: 0px solid transparent;
+}
+
+#log>div.deleted {
+    visibility: hidden;
+}
+
+#log>div {
+    animation: fadeInRight .75s ease forwards, fadeOutRight 0.75s ease {message_hide_delay} forwards;
+    -webkit-animation: fadeInRight .75s ease forwards, fadeOutRight 0.75s ease {message_hide_delay} forwards;
+}
+
+.meta {
+    font-size: 1rem;
+    text-align: right;
+    color: white;
+    font-family: 'DM Serif Display', serif;
+    position: relative;
+    z-index: 5;
+}
+
+.badges {
+    display: inline-block;
+    padding: 4px 4px 2px 2px;
+    z-index: 3;
+}
+
+.badges-inv {
+    visibility: hidden;
+}
+
+.badges-topleft {
+    position: absolute !important;
+    top: 0px;
+    left: 0px;
+    transform: translate(-50%, -40%) scale(125%);
+}
+
+.badge {
+    display: inline-block;
+    margin: -2px 1px 0 1px;
+    position: relative;
+    height: fit-content;
+    vertical-align: middle;
+    transform: rotate(-15deg);
+}
+
+img.badge {
+    -webkit-filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));
+    filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));
+}
+
+.username_box {
+    color: white;
+    font-family: 'DM Serif Display', serif;
+}
+
+.username_box_sub {
+    color: black; /* Black text for light background */
+    font-family: 'DM Serif Display', serif;    
+}
+
+.message_box {
+    font-size: 1rem;
+    text-align: right;
+    color: white;
+    word-wrap: break-word;
+    word-break: break-word;
+    z-index: 5;
+}
+
+.message_box_sub {
+    font-size: 1rem;
+    text-align: right;
+    color: black; /* Black text for light background */
+    word-wrap: break-word;
+    word-break: break-word;
+    z-index: 5;
+}
+
+#log .emote {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    padding: 0.4em 0.2em;
+    position: relative;
+}
+
+#log .emote img {
+    display: inline-block;
+    height: 1.2em;
+    opacity: 0;
+}
