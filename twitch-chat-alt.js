@@ -2,11 +2,13 @@
 document.addEventListener('onLoad', function(obj) {
 	// obj will be empty for chat widget
 	// this will fire only once when the widget loads
+    twemoji.parse(document.body);
 });
 
 document.addEventListener('onEventReceived', function(obj) {
   	// obj will contain information about the event
   	// console.log(obj);
+    twemoji.parse(document.body);
 
     var messageID = obj.detail.messageId+'-wrapper';
     var messageFrom = obj.detail.messageId+'-username-box';
