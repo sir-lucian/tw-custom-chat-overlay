@@ -3,7 +3,7 @@
 html {
     height: 100%;
     overflow: hidden;
-    background-color: rgba(0,0,0,0);
+    background-color: rgba(0, 0, 0, 0);
     font-family: 'IBM Plex Sans Thai', sans-serif;
     zoom: 150%;
 }
@@ -25,56 +25,66 @@ html {
 .wrapper {
     position: relative;
     margin: 0.5rem 5px 0 25px;
-    padding: 0.25rem 0.75rem;
-    float: left;
-    clear: left;
-    background: rgba(0, 0, 0, 0.75); /* Normal chatter background color -- Edit Here */
+    padding: 0.5rem 0.75rem;
+    float: right;
+    clear: right;
+    /* Normal chatter background color -- Edit Here */
+    background: rgba(0, 0, 0, 0.75);
+    /* --- */
     border-left: 10px solid white;
 }
 
 .wrapper-sub {
     position: relative;
     margin: 0.5rem 5px 0 25px;
-    padding: 0.25rem 0.75rem;
-    float: left;
-    clear: left;
-    background: rgba(255, 255, 255, 0.75); /* Subscriber background color -- Edit Here */
+    padding: 0.5rem 0.75rem;
+    float: right;
+    clear: right;
+    /* Subscriber background color -- Edit Here */
+    background: rgba(255, 255, 255, 0.75);
+    /* --- */
     border-left: 10px solid white;
 }
 
 .wrapper-vip {
     position: relative;
     margin: 0.5rem 5px 0 25px;
-    padding: 0.25rem 0.75rem;
-    float: left;
-    clear: left;
-    background: rgba(224, 5, 185, 0.75); /* VIP background color -- Edit Here */
+    padding: 0.5rem 0.75rem;
+    float: right;
+    clear: right;
+    /* VIP background color -- Edit Here */
+    background: rgba(224, 5, 185, 0.75);
+    /* --- */
     border-left: 10px solid white;
 }
 
 .wrapper-mod {
     position: relative;
     margin: 0.5rem 5px 0 25px;
-    padding: 0.25rem 0.75rem;
-    float: left;
-    clear: left;
-    background: rgba(28, 185, 106, 0.75); /* Moderator background color -- Edit Here */
+    padding: 0.5rem 0.75rem;
+    float: right;
+    clear: right;
+    /* Moderator background color -- Edit Here */
+    background: rgba(28, 185, 106, 0.75);
+    /* --- */
     border-left: 10px solid white;
 }
 
 .wrapper-streamer {
     position: relative;
     margin: 0.5rem 5px 0 25px;
-    padding: 0.25rem 0.75rem;
-    float: left;
-    clear: left;
-    background: rgba(233, 26, 23, 0.75); /* Streamer background color -- Edit Here */
+    padding: 0.5rem 0.75rem;
+    float: right;
+    clear: right;
+    /* Streamer background color -- Edit Here */
+    background: rgba(233, 26, 23, 0.75);
+    /* --- */
     border-left: 10px solid white;
 }
 
 /* Message Box Bottom Left Triangle */
 
-.wrapper:before {
+.wrapper:after {
     content: "";
     position: absolute;
     left: 100%;
@@ -82,55 +92,60 @@ html {
     width: 0;
     height: 0;
     border-top: 20px solid transparent;
-    border-right: 20px solid rgba(0,0,0,0.75); /* Normal chatter background color -- Edit Here */
+    border-right: 20px solid rgba(0, 0, 0, 0.75);
+    /* Normal chatter background color -- Edit Here */
     border-bottom: 0px solid transparent;
 }
 
-.wrapper-sub:before {
+.wrapper-sub:after {
     content: "";
     position: absolute;
-    right: 100%;
+    left: 100%;
     bottom: 0;
     width: 0;
     height: 0;
     border-top: 20px solid transparent;
-    border-right: 20px solid rgba(255,255,255,0.75); /* Subscriber background color -- Edit Here */
+    border-right: 20px solid rgba(255, 255, 255, 0.75);
+    /* Subscriber background color -- Edit Here */
     border-bottom: 0px solid transparent;
 }
 
-.wrapper-vip:before {
+.wrapper-vip:after {
     content: "";
     position: absolute;
-    right: 100%;
+    left: 100%;
     bottom: 0;
     width: 0;
     height: 0;
     border-top: 20px solid transparent;
-    border-right: 20px solid rgba(224, 5, 185, 0.75); /* VIP background color -- Edit Here */
+    border-right: 20px solid rgba(224, 5, 185, 0.75);
+    /* VIP background color -- Edit Here */
     border-bottom: 0px solid transparent;
 }
 
-.wrapper-mod:before {
+.wrapper-mod:after {
     content: "";
     position: absolute;
-    right: 100%;
+    left: 100%;
     bottom: 0;
     width: 0;
     height: 0;
     border-top: 20px solid transparent;
-    border-right: 20px solid rgba(28, 185, 106, 0.75); /* Moderator background color -- Edit Here */
+    border-right: 20px solid rgba(28, 185, 106, 0.75);
+    /* Moderator background color -- Edit Here */
     border-bottom: 0px solid transparent;
 }
 
-.wrapper-streamer:before {
+.wrapper-streamer:after {
     content: "";
     position: absolute;
-    right: 100%;
+    left: 100%;
     bottom: 0;
     width: 0;
     height: 0;
     border-top: 20px solid transparent;
-    border-right: 20px solid rgba(233, 26, 23, 0.75); /* Streamer background color -- Edit Here */
+    border-right: 20px solid rgba(233, 26, 23, 0.75);
+    /* Streamer background color -- Edit Here */
     border-bottom: 0px solid transparent;
 }
 
@@ -139,8 +154,20 @@ html {
 }
 
 #log>div {
-    animation: fadeInRight .75s ease forwards, fadeOutRight 0.75s ease {message_hide_delay} forwards;
-    -webkit-animation: fadeInRight .75s ease forwards, fadeOutRight 0.75s ease {message_hide_delay} forwards;
+
+    animation: fadeInRight .75s ease forwards,
+    fadeOutRight 0.75s ease {
+        message_hide_delay
+    }
+
+    forwards;
+
+    -webkit-animation: fadeInRight .75s ease forwards,
+    fadeOutRight 0.75s ease {
+        message_hide_delay
+    }
+
+    forwards;
 }
 
 .meta {
@@ -152,51 +179,64 @@ html {
     z-index: 5;
 }
 
+.emoji {
+    width: 1.25em;
+    height: 1.25em;
+    margin: 0 .05em 0 .1em;
+    vertical-align: -.1em;
+    transform: translate(0, 0.05em);
+    -webkit-filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.3));
+    filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.3));
+}
+
 .badges {
     display: inline-block;
-    padding: 4px 4px 2px 2px;
     z-index: 3;
+    vertical-align: -.1em;
 }
 
 .badges-inv {
     visibility: hidden;
 }
 
-.badges-topleft {
+.badges-topright {
     position: absolute !important;
     top: 0px;
-    left: 0px;
-    transform: translate(-50%, -40%) scale(125%);
+    right: 0px;
+    transform: translate(1.5rem, -1rem);
 }
 
 .badge {
     display: inline-block;
-    margin: -2px 1px 0 1px;
+    margin: 0 .05em 0 .1em;
     position: relative;
-    height: fit-content;
+    height: 1.25rem;
     vertical-align: middle;
-    transform: rotate(-15deg);
+    transform: rotate(15deg);
 }
 
 img.badge {
-    -webkit-filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));
-    filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));
+    -webkit-filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.3));
+    filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.3));
 }
 
 .username_box {
     color: white;
     font-family: 'DM Serif Display', serif;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
 }
 
 .username_box_sub {
-    color: black; /* Black text for light background */
-    font-family: 'DM Serif Display', serif;    
+    color: black;
+    /* Black text for light background */
+    font-family: 'DM Serif Display', serif;
 }
 
 .message_box {
     font-size: 1rem;
     text-align: right;
     color: white;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
     word-wrap: break-word;
     word-break: break-word;
     z-index: 5;
@@ -205,7 +245,8 @@ img.badge {
 .message_box_sub {
     font-size: 1rem;
     text-align: right;
-    color: black; /* Black text for light background */
+    color: black;
+    /* Black text for light background */
     word-wrap: break-word;
     word-break: break-word;
     z-index: 5;
@@ -215,12 +256,12 @@ img.badge {
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
-    padding: 0.4em 0.2em;
+    padding: 0.8em 0.2em 0;
     position: relative;
 }
 
 #log .emote img {
     display: inline-block;
-    height: 1.2em;
+    height: 1.5em;
     opacity: 0;
 }
