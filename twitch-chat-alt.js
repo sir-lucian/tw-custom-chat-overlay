@@ -2,7 +2,6 @@
 document.addEventListener('onLoad', function(obj) {
 	// obj will be empty for chat widget
 	// this will fire only once when the widget loads
-    twemoji.parse(document.body);
 });
 
 document.addEventListener('onEventReceived', function(obj) {
@@ -24,16 +23,19 @@ document.addEventListener('onEventReceived', function(obj) {
         elementWrapper.classList.remove("wrapper"); // Remove Old Class
 
         /* If there is 'color' in API, use it, use white if not */
-        if (obj.detail.hasOwnProperty('color')) {
-            elementWrapper.style.borderLeftColor(obj.detail.color);
+        if (obj.detail.tags.hasOwnProperty('color')) {
+            elementWrapper.style.borderLeftColor = obj.detail.tags.color;
         }
         else {
-            elementWrapper.style.borderLeftColor('white');
+            elementWrapper.style.borderLeftColor = 'white';
         }
         
         /* display: none; the wrong side of badges */
-        document.getElementById(messageID+'-d-none-left-inv').style.display = "none";
-        document.getElementById(messageID+'-d-none-left-top').style.display = "none";
+        document.getElementById(obj.detail.messageId+'-d-none-left-inv').style.display = "none";
+        document.getElementById(obj.detail.messageId+'-d-none-left-top').style.display = "none";      
+        document.getElementById(obj.detail.messageId+'-meta').style.textAlign = "left";
+        document.getElementById(obj.detail.messageId+'-message-box').style.textAlign = "left";
+
     }
     else if (isMod == '1') { // Mod
         var elementWrapper = document.getElementById(messageID);
@@ -41,16 +43,18 @@ document.addEventListener('onEventReceived', function(obj) {
         elementWrapper.classList.remove("wrapper");
         
         /* If there is 'color' in API, use it, use white if not */
-        if (obj.detail.hasOwnProperty('color')) {
-            elementWrapper.style.borderLeftColor(obj.detail.color);
+        if (obj.detail.tags.hasOwnProperty('color')) {
+            elementWrapper.style.borderLeftColor = obj.detail.tags.color;
         }
         else {
-            elementWrapper.style.borderLeftColor('white');
+            elementWrapper.style.borderLeftColor = 'white';
         }
         
         /* display: none; the wrong side of badges */
-        document.getElementById(messageID+'-d-none-left-inv').style.display = "none";
-        document.getElementById(messageID+'-d-none-left-top').style.display = "none";
+        document.getElementById(obj.detail.messageId+'-d-none-left-inv').style.display = "none";
+        document.getElementById(obj.detail.messageId+'-d-none-left-top').style.display = "none";
+        document.getElementById(obj.detail.messageId+'-meta').style.textAlign = "left";
+        document.getElementById(obj.detail.messageId+'-message-box').style.textAlign = "left";
     }
     else if (isVIP == '1') { // VIP
         var elementWrapper = document.getElementById(messageID);
@@ -58,16 +62,18 @@ document.addEventListener('onEventReceived', function(obj) {
         elementWrapper.classList.remove("wrapper");
 
         /* If there is 'color' in API, use it, use white if not */
-        if (obj.detail.hasOwnProperty('color')) {
-            elementWrapper.style.borderRightColor(obj.detail.color);
+        if (obj.detail.tags.hasOwnProperty('color')) {
+            elementWrapper.style.borderRightColor = obj.detail.tags.color;
         }
         else {
-            elementWrapper.style.borderRightColor('white');
+            elementWrapper.style.borderRightColor = 'white';
         }
 
         /* display: none; the wrong side of badges */
-        document.getElementById(messageID+'-d-none-right-inv').style.display = "none";
-        document.getElementById(messageID+'-d-none-right-top').style.display = "none";
+        document.getElementById(obj.detail.messageId+'-d-none-right-inv').style.display = "none";
+        document.getElementById(obj.detail.messageId+'-d-none-right-top').style.display = "none";
+        document.getElementById(obj.detail.messageId+'-meta').style.textAlign = "right";
+        document.getElementById(obj.detail.messageId+'-message-box').style.textAlign = "right";
     }
     else if (isSub) { // Subscriber
         var elementWrapper = document.getElementById(messageID);
@@ -75,16 +81,18 @@ document.addEventListener('onEventReceived', function(obj) {
         elementWrapper.classList.remove("wrapper");
 
         /* If there is 'color' in API, use it, use white if not */
-        if (obj.detail.hasOwnProperty('color')) {
-            elementWrapper.style.borderRightColor(obj.detail.color);
+        if (obj.detail.tags.hasOwnProperty('color')) {
+            elementWrapper.style.borderRightColor = obj.detail.tags.color;
         }
         else {
-            elementWrapper.style.borderRightColor('white');
+            elementWrapper.style.borderRightColor = 'white';
         }
 
         /* display: none; the wrong side of badges */
-        document.getElementById(messageID+'-d-none-right-inv').style.display = "none";
-        document.getElementById(messageID+'-d-none-right-top').style.display = "none";
+        document.getElementById(obj.detail.messageId+'-d-none-right-inv').style.display = "none";
+        document.getElementById(obj.detail.messageId+'-d-none-right-top').style.display = "none";
+        document.getElementById(obj.detail.messageId+'-meta').style.textAlign = "right";
+        document.getElementById(obj.detail.messageId+'-message-box').style.textAlign = "right";
         
         var elementFrom = document.getElementById(messageFrom); /* Light BG uses black text here */
         elementFrom.classList.add("username_box_sub");
@@ -92,6 +100,22 @@ document.addEventListener('onEventReceived', function(obj) {
         var elementBody = document.getElementById(messageBody); /* Light BG uses black text here */
         elementBody.classList.add("message_box_sub");
         elementBody.classList.remove("message_box");
+    }
+    else {
+
+        var elementWrapper = document.getElementById(messageID);
+        /* If there is 'color' in API, use it, use white if not */
+        if (obj.detail.tags.hasOwnProperty('color')) {
+            elementWrapper.style.borderRightColor = obj.detail.tags.color;
+        }
+        else {
+            elementWrapper.style.borderRightColor = 'white';
+        }
+
+        document.getElementById(obj.detail.messageId+'-d-none-right-inv').style.display = "none";
+        document.getElementById(obj.detail.messageId+'-d-none-right-top').style.display = "none";
+        document.getElementById(obj.detail.messageId+'-meta').style.textAlign = "right";
+        document.getElementById(obj.detail.messageId+'-message-box').style.textAlign = "right";
     }
     
 });

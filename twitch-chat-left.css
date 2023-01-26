@@ -167,7 +167,7 @@ html {
 
 .meta {
     font-size: 1rem;
-    text-align: right;
+    text-align: left;
     color: white;
     position: relative;
     z-index: 5;

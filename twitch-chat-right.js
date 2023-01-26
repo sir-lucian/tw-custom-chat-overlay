@@ -2,7 +2,6 @@
 document.addEventListener('onLoad', function(obj) {
 	// obj will be empty for chat widget
 	// this will fire only once when the widget loads
-    twemoji.parse(document.body);
 });
 
 document.addEventListener('onEventReceived', function(obj) {
@@ -22,31 +21,35 @@ document.addEventListener('onEventReceived', function(obj) {
         var elementWrapper = document.getElementById(messageID);
         elementWrapper.classList.add("wrapper-streamer"); // Add Class For Role
         elementWrapper.classList.remove("wrapper"); // Remove Old Class
-        elementWrapper.style.borderRightColor(obj.detail.color);
+        elementWrapper.style.borderRightColor = obj.detail.tags.color;
     }
     else if (isMod == '1') { // Mod
         var elementWrapper = document.getElementById(messageID);
         elementWrapper.classList.add("wrapper-mod");
         elementWrapper.classList.remove("wrapper");
-        elementWrapper.style.borderRightColor(obj.detail.color);
+        elementWrapper.style.borderRightColor = obj.detail.tags.color;
     }
     else if (isVIP == '1') { // VIP
         var elementWrapper = document.getElementById(messageID);
         elementWrapper.classList.add("wrapper-vip");
         elementWrapper.classList.remove("wrapper");
-        elementWrapper.style.borderRightColor(obj.detail.color);
+        elementWrapper.style.borderRightColor = obj.detail.tags.color;
     }
     else if (isSub) { // Subscriber
         var elementWrapper = document.getElementById(messageID);
       	elementWrapper.classList.add("wrapper-sub");
         elementWrapper.classList.remove("wrapper");
-        elementWrapper.style.borderRightColor(obj.detail.color);
+        elementWrapper.style.borderRightColor = obj.detail.tags.color;
         var elementFrom = document.getElementById(messageFrom); /* Light BG uses black text here */
         elementFrom.classList.add("username_box_sub");
         elementFrom.classList.remove("username_box");
         var elementBody = document.getElementById(messageBody); /* Light BG uses black text here */
         elementBody.classList.add("message_box_sub");
         elementBody.classList.remove("message_box");
+    }
+    else {
+        var elementWrapper = document.getElementById(messageID);
+        elementWrapper.style.borderRightColor = obj.detail.tags.color;
     }
     
 });
