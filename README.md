@@ -1,6 +1,6 @@
 # tw-custom-chat-overlay
-Custom Twitch chat overlay using Streamlabs API
+<p>Custom Twitch chat overlay using Streamlabs API</p>
 
-Paste each file in custom HTML, CSS, JS accordingly
-Have fun!
-- Lucian
+<p>Paste each file in custom HTML, CSS, JS accordingly
+Have fun!</p>
+<p>- Lucian</p>

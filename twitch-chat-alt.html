@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+    <html>
+
+        <head>
+
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Twitch Chat Overlay by Sir Lucian</title>
+            <script src="https://unpkg.com/twemoji@latest/dist/twemoji.min.js" crossorigin="anonymous"></script>
+
+        </head>
+
+        <body>
+
+            <!-- Item will be appened to this layout -->
+            <div id="log" class="sl__chat__layout"></div>
+
+            <!-- Chat Item -->
+            <script type="text/template" id="chatlist_item">
+                <div class="item">
+                    <div class="wrapper" data-from="{from}" data-id="{messageId}" id="{messageId}-wrapper" style="border-right-color: {color};">
+              
+                        <div class="meta" id="{messageId}-meta">
+                            <div class="username_box" id="{messageId}-username-box">
+                                <span id="{messageId}-d-none-left-inv" class="badges badges-inv"></span>
+                                <span id="{messageId}-d-none-left-top" class="badges badges-topleft"></span>
+                                <strong><span class="name">{from}</span></strong>
+                                <span id="{messageId}-d-none-right-inv" class="badges badges-inv"></span>
+                                <span id="{messageId}-d-none-right-top" class="badges badges-topright"></span>
+                            </div>
+                        </div>
+              
+                        <div class="message_box" id="{messageId}-message-box">
+                            <span class="message">{message}</span>
+                        </div>
+              
+                    </div>
+                </div>
+            </script>
+
+        </body>
+
+    </html>
