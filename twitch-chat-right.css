@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=IBM+Plex+Sans+Thai&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;700&display=swap');
 
 html {
     height: 100%;
@@ -155,26 +155,20 @@ html {
 
 #log>div {
 
-    animation: fadeInRight .75s ease forwards,
-    fadeOutRight 0.75s ease {
-        message_hide_delay
-    }
+    animation:
+        fadeInRight .75s ease forwards,
+        fadeOutRight 0.75s ease {message_hide_delay} forwards;
 
-    forwards;
-
-    -webkit-animation: fadeInRight .75s ease forwards,
-    fadeOutRight 0.75s ease {
-        message_hide_delay
-    }
-
-    forwards;
+    -webkit-animation:
+        fadeInRight .75s ease forwards,
+        fadeOutRight 0.75s ease {message_hide_delay} forwards;
+        
 }
 
 .meta {
     font-size: 1rem;
     text-align: right;
     color: white;
-    font-family: 'DM Serif Display', serif;
     position: relative;
     z-index: 5;
 }
@@ -222,14 +216,14 @@ img.badge {
 
 .username_box {
     color: white;
-    font-family: 'DM Serif Display', serif;
+    font-weight: 700;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
 }
 
 .username_box_sub {
     color: black;
     /* Black text for light background */
-    font-family: 'DM Serif Display', serif;
+    font-weight: 700;
 }
 
 .message_box {

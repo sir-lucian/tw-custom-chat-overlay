@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=IBM+Plex+Sans+Thai&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;700&family=IBM+Plex+Sans+Thai:wght@400;700&display=swap');
 
 html {
     height: 100%;
@@ -146,7 +146,7 @@ html {
     font-size: 1.15rem;
     text-align: right;
     color: white;
-    font-family: 'DM Serif Display', serif;
+    font-family: 'EB Garamond', 'IBM Plex Sans Thai', serif;
     position: relative;
     z-index: 5;
 }
@@ -194,13 +194,17 @@ img.badge {
 
 .username_box {
     color: white;
-    font-family: 'DM Serif Display', serif;
+    font-family: 'EB Garamond', 'IBM Plex Sans Thai', serif;
+    font-weight: 700;
+    letter-spacing: 1px;
     text-shadow: 2px 2px 2px rgba(0,0,0,0.3);
 }
 
 .username_box_sub {
     color: black; /* Black text for light background */
-    font-family: 'DM Serif Display', serif;    
+    font-family: 'EB Garamond', 'IBM Plex Sans Thai', serif;
+    letter-spacing: 1px;
+    font-weight: 700; 
 }
 
 .message_box {

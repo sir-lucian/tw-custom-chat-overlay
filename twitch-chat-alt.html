@@ -18,18 +18,24 @@
 
             <!-- Chat Item -->
             <script type="text/template" id="chatlist_item">
-                <div class="wrapper" data-from="{from}" data-id="{messageId}" id="{messageId}-wrapper" style="border-right-color: {color};">
+                <div class="item">
+                    <div class="wrapper" data-from="{from}" data-id="{messageId}" id="{messageId}-wrapper" style="border-right-color: {color};">
               
-                    <div class="meta">
-                        <div class="username_box" id="{messageId}-username-box">
-                            <span class="badges badges-inv"></span><span class="badges badges-topleft"></span><strong><span class="name">{from}</span></strong>
+                        <div class="meta">
+                            <div class="username_box" id="{messageId}-username-box">
+                                <span id="{messageId}-d-none-left-inv" class="badges badges-inv"></span>
+                                <span id="{messageId}-d-none-left-top" class="badges badges-topleft"></span>
+                                <strong><span class="name">{from}</span></strong>
+                                <span id="{messageId}-d-none-right-inv" class="badges badges-inv"></span>
+                                <span id="{messageId}-d-none-right-top" class="badges badges-topright"></span>
+                            </div>
                         </div>
-                    </div>
               
-                    <div class="message_box" id="{messageId}-message-box">
-                        <span class="message">{message}</span>
-                    </div>
+                        <div class="message_box" id="{messageId}-message-box">
+                            <span class="message">{message}</span>
+                        </div>
               
+                    </div>
                 </div>
             </script>
 

@@ -2,7 +2,7 @@
 document.addEventListener('onLoad', function (obj) {
 	// obj will be empty for chat widget
 	// this will fire only once when the widget loads
-	twemoji.parse(document.body, { base: 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/' });
+	twemoji.parse(document.body);
 
 });
 
@@ -10,7 +10,7 @@ document.addEventListener('onEventReceived', function (obj) {
 	// obj will contain information about the event
 	// console.log(obj);
 
-	twemoji.parse(document.body, { base: 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/' });
+	twemoji.parse(document.body);
 
 	var messageID = obj.detail.messageId + '-wrapper';
 	var messageFrom = obj.detail.messageId + '-username-box';
@@ -24,11 +24,13 @@ document.addEventListener('onEventReceived', function (obj) {
 		var elementWrapper = document.getElementById(messageID);
 		elementWrapper.classList.add("wrapper-streamer"); // Add Class For Role
 		elementWrapper.classList.remove("wrapper");       // Remove Old Class
+		elementWrapper.style.borderRightColor(obj.detail.color);
 	}
 	else if (isSub) { // Subscriber
 		var elementWrapper = document.getElementById(messageID);
 		elementWrapper.classList.add("wrapper-sub");
 		elementWrapper.classList.remove("wrapper");
+		elementWrapper.style.borderRightColor(obj.detail.color);
 		var elementFrom = document.getElementById(messageFrom); /* Light BG uses black text here */
 		elementFrom.classList.add("username_box_sub");
 		elementFrom.classList.remove("username_box");

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=IBM+Plex+Sans+Thai&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;700&display=swap');
 
 html {
     height: 100%;
@@ -24,10 +24,10 @@ html {
 
 .wrapper {
     position: relative;
-    margin: 0.5rem 5px 0 25px;
+    margin: 0.5rem 25px 0 5px;
     padding: 0.5rem 0.75rem;
-    float: right;
-    clear: right;
+    float: left;
+    clear: left;
     /* Normal chatter background color -- Edit Here */
     background: rgba(0, 0, 0, 0.75);
     /* --- */
@@ -36,10 +36,10 @@ html {
 
 .wrapper-sub {
     position: relative;
-    margin: 0.5rem 5px 0 25px;
+    margin: 0.5rem 25px 0 5px;
     padding: 0.5rem 0.75rem;
-    float: right;
-    clear: right;
+    float: left;
+    clear: left;
     /* Subscriber background color -- Edit Here */
     background: rgba(255, 255, 255, 0.75);
     /* --- */
@@ -48,10 +48,10 @@ html {
 
 .wrapper-vip {
     position: relative;
-    margin: 0.5rem 5px 0 25px;
+    margin: 0.5rem 25px 0 5px;
     padding: 0.5rem 0.75rem;
-    float: right;
-    clear: right;
+    float: left;
+    clear: left;
     /* VIP background color -- Edit Here */
     background: rgba(224, 5, 185, 0.75);
     /* --- */
@@ -60,10 +60,10 @@ html {
 
 .wrapper-mod {
     position: relative;
-    margin: 0.5rem 5px 0 25px;
+    margin: 0.5rem 25px 0 5px;
     padding: 0.5rem 0.75rem;
-    float: right;
-    clear: right;
+    float: left;
+    clear: left;
     /* Moderator background color -- Edit Here */
     background: rgba(28, 185, 106, 0.75);
     /* --- */
@@ -72,10 +72,10 @@ html {
 
 .wrapper-streamer {
     position: relative;
-    margin: 0.5rem 5px 0 25px;
+    margin: 0.5rem 25px 0 5px;
     padding: 0.5rem 0.75rem;
-    float: right;
-    clear: right;
+    float: left;
+    clear: left;
     /* Streamer background color -- Edit Here */
     background: rgba(233, 26, 23, 0.75);
     /* --- */
@@ -92,7 +92,7 @@ html {
     width: 0;
     height: 0;
     border-top: 20px solid transparent;
-    border-right: 20px solid rgba(0, 0, 0, 0.75);
+    border-left: 20px solid rgba(0, 0, 0, 0.75);
     /* Normal chatter background color -- Edit Here */
     border-bottom: 0px solid transparent;
 }
@@ -105,7 +105,7 @@ html {
     width: 0;
     height: 0;
     border-top: 20px solid transparent;
-    border-right: 20px solid rgba(255, 255, 255, 0.75);
+    border-left: 20px solid rgba(255, 255, 255, 0.75);
     /* Subscriber background color -- Edit Here */
     border-bottom: 0px solid transparent;
 }
@@ -118,7 +118,7 @@ html {
     width: 0;
     height: 0;
     border-top: 20px solid transparent;
-    border-right: 20px solid rgba(224, 5, 185, 0.75);
+    border-left: 20px solid rgba(224, 5, 185, 0.75);
     /* VIP background color -- Edit Here */
     border-bottom: 0px solid transparent;
 }
@@ -131,7 +131,7 @@ html {
     width: 0;
     height: 0;
     border-top: 20px solid transparent;
-    border-right: 20px solid rgba(28, 185, 106, 0.75);
+    border-left: 20px solid rgba(28, 185, 106, 0.75);
     /* Moderator background color -- Edit Here */
     border-bottom: 0px solid transparent;
 }
@@ -144,7 +144,7 @@ html {
     width: 0;
     height: 0;
     border-top: 20px solid transparent;
-    border-right: 20px solid rgba(233, 26, 23, 0.75);
+    border-left: 20px solid rgba(233, 26, 23, 0.75);
     /* Streamer background color -- Edit Here */
     border-bottom: 0px solid transparent;
 }
@@ -155,26 +155,20 @@ html {
 
 #log>div {
 
-    animation: fadeInRight .75s ease forwards,
-    fadeOutRight 0.75s ease {
-        message_hide_delay
-    }
+    animation:
+        fadeInLeft .75s ease forwards,
+        fadeOutLeft 0.75s ease {message_hide_delay} forwards;
 
-    forwards;
+    -webkit-animation:
+        fadeInLeft .75s ease forwards,
+        fadeOutLeft 0.75s ease {message_hide_delay} forwards;
 
-    -webkit-animation: fadeInRight .75s ease forwards,
-    fadeOutRight 0.75s ease {
-        message_hide_delay
-    }
-
-    forwards;
 }
 
 .meta {
     font-size: 1rem;
     text-align: right;
     color: white;
-    font-family: 'DM Serif Display', serif;
     position: relative;
     z-index: 5;
 }
@@ -203,7 +197,7 @@ html {
     position: absolute !important;
     top: 0px;
     right: 0px;
-    transform: translate(1.5rem, -1rem);
+    transform: translate(1.6rem, -1rem);
 }
 
 .badge {
@@ -222,19 +216,19 @@ img.badge {
 
 .username_box {
     color: white;
-    font-family: 'DM Serif Display', serif;
+    font-weight: 700;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
 }
 
 .username_box_sub {
     color: black;
     /* Black text for light background */
-    font-family: 'DM Serif Display', serif;
+    font-weight: 700;
 }
 
 .message_box {
     font-size: 1rem;
-    text-align: right;
+    text-align: left;
     color: white;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
     word-wrap: break-word;
@@ -244,7 +238,7 @@ img.badge {
 
 .message_box_sub {
     font-size: 1rem;
-    text-align: right;
+    text-align: left;
     color: black;
     /* Black text for light background */
     word-wrap: break-word;

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=IBM+Plex+Sans+Thai&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;700&display=swap');
 
 html {
     height: 100%;
@@ -19,12 +19,17 @@ html {
     width: 100%;
 }
 
+.item {
+    width: 100%;
+    clear: both;
+}
+
 /* Message Box */
 
 .wrapper {
     position: relative;
     margin: 0.5rem 5px 0 25px;
-    padding: 0.25rem 0.75rem;
+    padding: 0.5rem 0.75rem;
     float: right;
     clear: right;
     background: rgba(0, 0, 0, 0.75); /* Normal chatter background color -- Edit Here */
@@ -34,7 +39,7 @@ html {
 .wrapper-sub {
     position: relative;
     margin: 0.5rem 5px 0 25px;
-    padding: 0.25rem 0.75rem;
+    padding: 0.5rem 0.75rem;
     float: right;
     clear: right;
     background: rgba(255, 255, 255, 0.75); /* Subscriber background color -- Edit Here */
@@ -44,7 +49,7 @@ html {
 .wrapper-vip {
     position: relative;
     margin: 0.5rem 5px 0 25px;
-    padding: 0.25rem 0.75rem;
+    padding: 0.5rem 0.75rem;
     float: right;
     clear: right;
     background: rgba(224, 5, 185, 0.75); /* VIP background color -- Edit Here */
@@ -53,22 +58,22 @@ html {
 
 .wrapper-mod {
     position: relative;
-    margin: 0.5rem 5px 0 25px;
-    padding: 0.25rem 0.75rem;
-    float: right;
-    clear: right;
+    margin: 0.5rem 25px 0 5px;
+    padding: 0.5rem 0.75rem;
+    float: left;
+    clear: left;
     background: rgba(28, 185, 106, 0.75); /* Moderator background color -- Edit Here */
-    border-right: 10px solid white;
+    border-left: 10px solid white;
 }
 
 .wrapper-streamer {
     position: relative;
-    margin: 0.5rem 5px 0 25px;
-    padding: 0.25rem 0.75rem;
-    float: right;
-    clear: right;
+    margin: 0.5rem 25px 0 5px;
+    padding: 0.5rem 0.75rem;
+    float: left;
+    clear: left;
     background: rgba(233, 26, 23, 0.75); /* Streamer background color -- Edit Here */
-    border-right: 10px solid white;
+    border-left: 10px solid white;
 }
 
 /* Message Box Bottom Left Triangle */
@@ -109,10 +114,10 @@ html {
     border-bottom: 0px solid transparent;
 }
 
-.wrapper-mod:before {
+.wrapper-mod:after {
     content: "";
     position: absolute;
-    right: 100%;
+    left: 100%;
     bottom: 0;
     width: 0;
     height: 0;
@@ -121,10 +126,10 @@ html {
     border-bottom: 0px solid transparent;
 }
 
-.wrapper-streamer:before {
+.wrapper-streamer:after {
     content: "";
     position: absolute;
-    right: 100%;
+    left: 100%;
     bottom: 0;
     width: 0;
     height: 0;
@@ -138,15 +143,21 @@ html {
 }
 
 #log>div {
-    animation: fadeInRight .75s ease forwards, fadeOutRight 0.75s ease {message_hide_delay} forwards;
-    -webkit-animation: fadeInRight .75s ease forwards, fadeOutRight 0.75s ease {message_hide_delay} forwards;
+
+    animation:
+        fadeIn .75s ease forwards,
+        fadeOut 0.75s ease {message_hide_delay} forwards;
+
+    -webkit-animation:
+        fadeIn .75s ease forwards,
+        fadeOut 0.75s ease {message_hide_delay} forwards;
+        
 }
 
 .meta {
     font-size: 1rem;
     text-align: right;
     color: white;
-    font-family: 'DM Serif Display', serif;
     position: relative;
     z-index: 5;
 }
@@ -164,17 +175,23 @@ html {
 .badges-topleft {
     position: absolute !important;
     top: 0px;
+    right: 0px;
+    transform: translate(-1.6rem, -1rem);
+}
+
+.badges-topright {
+    position: absolute !important;
+    top: 0px;
     left: 0px;
-    transform: translate(-50%, -45%) scale(115%);
+    transform: translate(1.5rem, -1rem);
 }
 
 .badge {
     display: inline-block;
-    margin: -2px 1px 0 1px;
+    margin: 0 .05em 0 .1em;
     position: relative;
-    height: fit-content;
+    height: 1.25rem;
     vertical-align: middle;
-    transform: rotate(-15deg);
 }
 
 img.badge {
@@ -184,12 +201,12 @@ img.badge {
 
 .username_box {
     color: white;
-    font-family: 'DM Serif Display', serif;
+    font-weight: 700;
 }
 
 .username_box_sub {
     color: black; /* Black text for light background */
-    font-family: 'DM Serif Display', serif;    
+    font-weight: 700;    
 }
 
 .message_box {
