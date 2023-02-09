@@ -120,7 +120,7 @@
         <code>var isMod = obj.detail.tags.mod;</code>
     </li>
     <li>
-        <code>isStreamer = obj.detail.owner;</code>
+        <code>var isStreamer = obj.detail.owner;</code>
     </li>
 </ul>
 <p>
