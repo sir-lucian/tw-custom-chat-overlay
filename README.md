@@ -127,8 +127,7 @@
     จากนั้นก็จะเป็นการเช็ค if-else ตาม Role เลยครับ เรียกจาก if แรกที่เป็นเจ้าของช่อง else if ที่เป็น Mod, VIP, Sub
     และปิดท้ายด้วย else ผู้แชททั่วไปครับ ขอยกตัวอย่างการเช็คว่าเป็น Subscriber ในแชทสลับด้านแล้วกันนะครับ
 </p>
-<pre><code>
-else if (isSub) { // Subscriber
+<pre><code>else if (isSub) { // Subscriber
     var elementWrapper = document.getElementById(messageID);
     elementWrapper.classList.add("wrapper-sub");
     elementWrapper.classList.remove("wrapper");
@@ -138,8 +137,7 @@ else if (isSub) { // Subscriber
     เราก็จะได้เลือกกล่องนั้นมาสลับใส่ Class ที่ถูกต้องตาม Role โดยการเพิ่ม <code>elementWrapper.classList.add("wrapper-sub");</code>
     และลบ Class <code>elementWrapper.classList.remove("wrapper");</code> ครับ 
 </p>
-<pre><code>
-    if (obj.detail.tags.hasOwnProperty('color')) {
+<pre><code>    if (obj.detail.tags.hasOwnProperty('color')) {
     elementWrapper.style.borderRightColor = obj.detail.tags.color;
     }
     else {
@@ -151,8 +149,7 @@ else if (isSub) { // Subscriber
     ซึ่งในกรณี Subscriber นี้จะอยู่ทางขวา ก็จะใช้การเปลี่ยนสีขอบที่กล่องตามนี้ครับ <code>elementWrapper.style.borderRightColor = obj.detail.tags.color;</code>
 </p>
 <p> ถ้าไม่สามารถดึงข้อมูลได้ก็จะใช้สีขาวตาม else นั่นเอง</p>
-<pre><code>
-    document.getElementById(obj.detail.messageId+'-d-none-right-inv').style.display = "none";
+<pre><code>    document.getElementById(obj.detail.messageId+'-d-none-right-inv').style.display = "none";
     document.getElementById(obj.detail.messageId+'-d-none-right-top').style.display = "none";
     document.getElementById(obj.detail.messageId+'-meta').style.textAlign = "right";
     document.getElementById(obj.detail.messageId+'-message-box').style.textAlign = "right";
@@ -165,8 +162,7 @@ else if (isSub) { // Subscriber
 <p>
     อีกสิ่งที่ต้องทำคือจัด text-align ให้ชิดซ้ายชิดควาตามด้านครับ อย่างอันนี้ก็เป็น <code>.style.textAlign = "right";</code>
 </p>
-<pre><code>
-    var elementFrom = document.getElementById(messageFrom);
+<pre><code>    var elementFrom = document.getElementById(messageFrom);
     elementFrom.classList.add("username_box_sub");
     elementFrom.classList.remove("username_box");
     var elementBody = document.getElementById(messageBody);
