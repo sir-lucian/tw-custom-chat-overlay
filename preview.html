@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+	<html>
+
+		<head>
+
+			<meta charset="UTF-8">
+			<meta http-equiv="X-UA-Compatible" content="IE=edge">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<title>Twitch Chat Overlay by Sir Lucian (Preview)</title>
+			<script src="https://unpkg.com/twemoji@latest/dist/twemoji.min.js" crossorigin="anonymous"></script>
+
+			<style>
+				html {
+					height: 100%;
+					overflow: hidden;
+					background-color: rgba(55, 55, 55, 1);
+					font-family: 'IBM Plex Sans Thai', sans-serif;
+				}
+			
+				.colon {
+					display: none;
+				}
+			
+				#log {
+					display: block;
+					position: absolute;
+					bottom: 0;
+					left: 0;
+					width: 100%;
+				}
+			
+				/* Message Box */
+			
+				.wrapper {
+					position: relative;
+					margin: 0.5rem 5px 0 25px;
+					padding: 0.5rem 0.75rem;
+					float: right;
+					clear: right;
+					/* Normal chatter background color -- Edit Here */
+					background: rgba(0, 0, 0, 0.75);
+					/* --- */
+					border-right: 10px solid white;
+				}
+			
+				.wrapper-sub {
+					position: relative;
+					margin: 0.5rem 5px 0 25px;
+					padding: 0.5rem 0.75rem;
+					float: right;
+					clear: right;
+					/* Subscriber background color -- Edit Here */
+					background: rgba(255, 255, 255, 0.75);
+					/* --- */
+					border-right: 10px solid white;
+				}
+			
+				.wrapper-vip {
+					position: relative;
+					margin: 0.5rem 5px 0 25px;
+					padding: 0.5rem 0.75rem;
+					float: right;
+					clear: right;
+					/* VIP background color -- Edit Here */
+					background: rgba(224, 5, 185, 0.75);
+					/* --- */
+					border-right: 10px solid white;
+				}
+			
+				.wrapper-mod {
+					position: relative;
+					margin: 0.5rem 5px 0 25px;
+					padding: 0.5rem 0.75rem;
+					float: right;
+					clear: right;
+					/* Moderator background color -- Edit Here */
+					background: rgba(28, 185, 106, 0.75);
+					/* --- */
+					border-right: 10px solid white;
+				}
+			
+				.wrapper-streamer {
+					position: relative;
+					margin: 0.5rem 5px 0 25px;
+					padding: 0.5rem 0.75rem;
+					float: right;
+					clear: right;
+					/* Streamer background color -- Edit Here */
+					background: rgba(233, 26, 23, 0.75);
+					/* --- */
+					border-right: 10px solid white;
+				}
+			
+				/* Message Box Bottom Left Triangle */
+			
+				.wrapper:before {
+					content: "";
+					position: absolute;
+					right: 100%;
+					bottom: 0;
+					width: 0;
+					height: 0;
+					border-top: 20px solid transparent;
+					border-right: 20px solid rgba(0, 0, 0, 0.75);
+					/* Normal chatter background color -- Edit Here */
+					border-bottom: 0px solid transparent;
+				}
+			
+				.wrapper-sub:before {
+					content: "";
+					position: absolute;
+					right: 100%;
+					bottom: 0;
+					width: 0;
+					height: 0;
+					border-top: 20px solid transparent;
+					border-right: 20px solid rgba(255, 255, 255, 0.75);
+					/* Subscriber background color -- Edit Here */
+					border-bottom: 0px solid transparent;
+				}
+			
+				.wrapper-vip:before {
+					content: "";
+					position: absolute;
+					right: 100%;
+					bottom: 0;
+					width: 0;
+					height: 0;
+					border-top: 20px solid transparent;
+					border-right: 20px solid rgba(224, 5, 185, 0.75);
+					/* VIP background color -- Edit Here */
+					border-bottom: 0px solid transparent;
+				}
+			
+				.wrapper-mod:before {
+					content: "";
+					position: absolute;
+					right: 100%;
+					bottom: 0;
+					width: 0;
+					height: 0;
+					border-top: 20px solid transparent;
+					border-right: 20px solid rgba(28, 185, 106, 0.75);
+					/* Moderator background color -- Edit Here */
+					border-bottom: 0px solid transparent;
+				}
+			
+				.wrapper-streamer:before {
+					content: "";
+					position: absolute;
+					right: 100%;
+					bottom: 0;
+					width: 0;
+					height: 0;
+					border-top: 20px solid transparent;
+					border-right: 20px solid rgba(233, 26, 23, 0.75);
+					/* Streamer background color -- Edit Here */
+					border-bottom: 0px solid transparent;
+				}
+			
+				.meta {
+					font-size: 1rem;
+					text-align: right;
+					color: white;
+					position: relative;
+					z-index: 5;
+				}
+			
+				.emoji {
+					width: 1.25em;
+					height: 1.25em;
+					margin: 0 .05em 0 .1em;
+					vertical-align: -.1em;
+					transform: translate(0, 0.05em);
+					-webkit-filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.3));
+					filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.3));
+				}
+			
+				.badges {
+					display: inline-block;
+					z-index: 3;
+					vertical-align: -.1em;
+				}
+			
+				.badges-inv {
+					visibility: hidden;
+				}
+			
+				.badges-topleft {
+					position: absolute !important;
+					top: 0px;
+					left: 0px;
+					transform: translate(-1.5rem, -1rem);
+				}
+			
+				.badge {
+					display: inline-block;
+					margin: 0 .05em 0 .1em;
+					position: relative;
+					height: 1.25rem;
+					vertical-align: middle;
+					transform: rotate(-15deg);
+				}
+			
+				img.badge {
+					-webkit-filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.3));
+					filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.3));
+				}
+			
+				.username_box {
+					color: white;
+					font-weight: 700;
+					text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+				}
+			
+				.username_box_sub {
+					color: black;
+					/* Black text for light background */
+					font-weight: 700;
+				}
+			
+				.message_box {
+					font-size: 1rem;
+					text-align: right;
+					color: white;
+					text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+					word-wrap: break-word;
+					word-break: break-word;
+					z-index: 5;
+				}
+			
+				.message_box_sub {
+					font-size: 1rem;
+					text-align: right;
+					color: black;
+					/* Black text for light background */
+					word-wrap: break-word;
+					word-break: break-word;
+					z-index: 5;
+				}
+			</style>
+
+		</head>
+
+		<body>
+
+			<div class="wrapper-streamer">
+
+				<div class="meta">
+					<div class="username_box">
+						<span class="badges badges-inv"></span><span class="badges badges-topleft"></span><strong><span class="name">StLucian</span></strong>
+					</div>
+				</div>
+
+				<div class="message_box">
+					<span class="message">สวัสดีนะครับ</span>
+				</div>
+
+			</div>
+			<div class="wrapper-mod">
+
+				<div class="meta">
+					<div class="username_box">
+						<span class="badges badges-inv"></span><span class="badges badges-topleft"></span><strong><span class="name">KindnessNumberSix</span></strong>
+					</div>
+				</div>
+
+				<div class="message_box">
+					<span class="message">เอาความหิวมาฝาก</span>
+				</div>
+
+			</div>
+			<div class="wrapper-vip">
+
+				<div class="meta">
+					<div class="username_box">
+						<span class="badges badges-inv"></span><span class="badges badges-topleft"></span><strong><span class="name">Lunyatic</span></strong>
+					</div>
+				</div>
+
+				<div class="message_box">
+					<span class="message">เกิน 😱</span>
+				</div>
+
+			</div>
+			<div class="wrapper-sub">
+
+				<div class="meta">
+					<div class="username_box_sub">
+						<span class="badges badges-inv"></span><span class="badges badges-topleft"></span><strong><span class="name">Marzeline_IX</span></strong>
+					</div>
+				</div>
+
+				<div class="message_box_sub">
+					<span class="message">โอ้ไม่นะ</span>
+				</div>
+
+			</div>
+			<div class="wrapper">
+
+				<div class="meta">
+					<div class="username_box">
+						<span class="badges badges-inv"></span><span class="badges badges-topleft"></span><strong><span class="name">Papang_uvu</span></strong>
+					</div>
+				</div>
+
+				<div class="message_box">
+					<span class="message">พี่อย่าแกงผม</span>
+				</div>
+
+			</div> 
+
+		</body>
+		<script>
+			document.ready(twemoji.parse(document.body));
+		</script>
+
+	</html>
