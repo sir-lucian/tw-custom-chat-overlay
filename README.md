@@ -127,42 +127,36 @@
     จากนั้นก็จะเป็นการเช็ค if-else ตาม Role เลยครับ เรียกจาก if แรกที่เป็นเจ้าของช่อง else if ที่เป็น Mod, VIP, Sub
     และปิดท้ายด้วย else ผู้แชททั่วไปครับ ขอยกตัวอย่างการเช็คว่าเป็น Subscriber ในแชทสลับด้านแล้วกันนะครับ
 </p>
-<pre>
-    <code>
-        else if (isSub) { // Subscriber
-            &emsp;&emsp;&emsp;&emsp;var elementWrapper = document.getElementById(messageID);
-            &emsp;&emsp;&emsp;&emsp;elementWrapper.classList.add("wrapper-sub");
-            &emsp;&emsp;&emsp;&emsp;elementWrapper.classList.remove("wrapper");
-    </code>
-</pre>
+<pre><code>
+else if (isSub) { // Subscriber
+    var elementWrapper = document.getElementById(messageID);
+    elementWrapper.classList.add("wrapper-sub");
+    elementWrapper.classList.remove("wrapper");
+</code></pre>
 <p>
     อันแรกก็จะเป็นการดึงกล่องที่ถูกต้องจาก ID ที่เราแปะไว้นะครับ โดยการใช้ <code>document.getElementById(messageID);</code>
     เราก็จะได้เลือกกล่องนั้นมาสลับใส่ Class ที่ถูกต้องตาม Role โดยการเพิ่ม <code>elementWrapper.classList.add("wrapper-sub");</code>
     และลบ Class <code>elementWrapper.classList.remove("wrapper");</code> ครับ 
 </p>
-<pre>
-    <code>
-            &emsp;&emsp;&emsp;&emsp;if (obj.detail.tags.hasOwnProperty('color')) {
-            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;elementWrapper.style.borderRightColor = obj.detail.tags.color;
-            &emsp;&emsp;&emsp;&emsp;}
-            &emsp;&emsp;&emsp;&emsp;else {
-            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;elementWrapper.style.borderRightColor = 'white';
-            &emsp;&emsp;&emsp;&emsp;}
-    </code>
-</pre>
+<pre><code>
+    if (obj.detail.tags.hasOwnProperty('color')) {
+    elementWrapper.style.borderRightColor = obj.detail.tags.color;
+    }
+    else {
+    elementWrapper.style.borderRightColor = 'white';
+    }
+</code></pre>
 <p>
     จากนั้นจะเป็นการดึงข้อมูลสีชื่อผู้แชท <code>obj.detail.tags.color</code> มาใส่ที่ขอบครับ โดยใช้การเช็คว่าถ้ามีสีก็จะใช้ค่าสีครับ <code>if (obj.detail.tags.hasOwnProperty('color'))</code>
     ซึ่งในกรณี Subscriber นี้จะอยู่ทางขวา ก็จะใช้การเปลี่ยนสีขอบที่กล่องตามนี้ครับ <code>elementWrapper.style.borderRightColor = obj.detail.tags.color;</code>
 </p>
 <p> ถ้าไม่สามารถดึงข้อมูลได้ก็จะใช้สีขาวตาม else นั่นเอง</p>
-<pre>
-    <code>
-            &emsp;&emsp;&emsp;&emsp;document.getElementById(obj.detail.messageId+'-d-none-right-inv').style.display = "none";
-            &emsp;&emsp;&emsp;&emsp;document.getElementById(obj.detail.messageId+'-d-none-right-top').style.display = "none";
-            &emsp;&emsp;&emsp;&emsp;document.getElementById(obj.detail.messageId+'-meta').style.textAlign = "right";
-            &emsp;&emsp;&emsp;&emsp;document.getElementById(obj.detail.messageId+'-message-box').style.textAlign = "right";
-    </code>
-</pre>
+<pre><code>
+    document.getElementById(obj.detail.messageId+'-d-none-right-inv').style.display = "none";
+    document.getElementById(obj.detail.messageId+'-d-none-right-top').style.display = "none";
+    document.getElementById(obj.detail.messageId+'-meta').style.textAlign = "right";
+    document.getElementById(obj.detail.messageId+'-message-box').style.textAlign = "right";
+</code></pre>
 <p>
     ต่อไปจะเป็นการปิดการแสดงผล badge ในข้างที่ผิดนะครับ เนื่องจากเราได้วาง badge ไว้ทั้งสองข้างใน HTML เราจึงต้อง
     ทำการใส่ <code>.style.display: "none";</code> ในด้านที่ผิดครับ เช่น กล่อง Sub ชิดขวา ก็ต้องปิดขวาให้แสดงผลแต่ซ้าย
@@ -171,17 +165,15 @@
 <p>
     อีกสิ่งที่ต้องทำคือจัด text-align ให้ชิดซ้ายชิดควาตามด้านครับ อย่างอันนี้ก็เป็น <code>.style.textAlign = "right";</code>
 </p>
-<pre>
-    <code>
-            &emsp;&emsp;&emsp;&emsp;var elementFrom = document.getElementById(messageFrom);
-            &emsp;&emsp;&emsp;&emsp;elementFrom.classList.add("username_box_sub");
-            &emsp;&emsp;&emsp;&emsp;elementFrom.classList.remove("username_box");
-            &emsp;&emsp;&emsp;&emsp;var elementBody = document.getElementById(messageBody);
-            &emsp;&emsp;&emsp;&emsp;elementBody.classList.add("message_box_sub");
-            &emsp;&emsp;&emsp;&emsp;elementBody.classList.remove("message_box");
-        }
-    </code>
-</pre>
+<pre><code>
+    var elementFrom = document.getElementById(messageFrom);
+    elementFrom.classList.add("username_box_sub");
+    elementFrom.classList.remove("username_box");
+    var elementBody = document.getElementById(messageBody);
+    elementBody.classList.add("message_box_sub");
+    elementBody.classList.remove("message_box");
+}
+</code></pre>
 <p>
     ส่วนสุดท้าย เป็นเรื่อง optional ของสีพื้นกล่องสีกว่าที่ต้องปรับให้สีฟอนต์เป็นสีเข้มครับ เหมือนเดิมครับ เพิ่ม-ลบ Class
 </p>
