@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+	<html>
+
+		<head>
+
+			<meta charset="UTF-8">
+			<meta http-equiv="X-UA-Compatible" content="IE=edge">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<title>Twitch Chat Overlay by Sir Lucian - Made for KurosawaSP</title>
+			<script src="https://unpkg.com/twemoji@latest/dist/twemoji.min.js" crossorigin="anonymous"></script>
+
+			<style>
+
+				@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
+				html {
+					height: 100%;
+					width: 300px;
+					overflow: hidden;
+					background-color: rgba(55, 55, 55, 1);
+					font-family: 'Itim', sans-serif;
+				}
+			
+				.colon {
+					display: none;
+				}
+			
+				#log {
+					display: block;
+					position: absolute;
+					bottom: 0;
+					left: 0;
+					width: 100%;
+				}
+			
+				/* Message Box */
+			
+				.wrapper {
+					position: relative;
+					margin: 1.25rem 0.25rem 0.25rem;
+					padding: 0.25rem;
+					/* Normal chatter background color -- Edit Here */
+					background: rgba(0, 0, 0, 0);
+					/* --- */
+					border-top: 2px dashed rgb(255, 119, 119);
+				}
+
+				.message_box {
+					margin: 0.5rem 0;
+					padding: 0.5rem;
+					/* Normal chatter background color -- Edit Here */
+					background: rgb(245, 198, 165);
+					/* --- */
+					border-radius: 10px;
+
+					font-size: 1rem;
+					text-align: center;
+					color: rgba(48, 48, 48);
+					word-wrap: break-word;
+					word-break: break-word;
+					z-index: 5;
+				}
+
+				.username_box {
+					position: absolute;
+					padding: 0.5rem;
+					transform: translate(-50%, -50%);
+					left: 50%;
+					top: -0.25rem;
+					border-radius: 10px;
+					background: rgb(162, 65, 107);
+					color: rgb(245, 198, 165);
+					font-weight: 700;
+				}
+			
+				.meta {
+					font-size: 1rem;
+					text-align: right;
+					color: rgba(48, 48, 48);
+					position: relative;
+					z-index: 5;
+				}
+			
+				.emoji {
+					width: 1.25em;
+					height: 1.25em;
+					margin: 0 .05em 0 .1em;
+					vertical-align: -.1em;
+					transform: translate(0, 0.05em);
+					-webkit-filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.3));
+					filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.3));
+				}
+			
+				.badges {
+					display: inline-block;
+					z-index: 3;
+					vertical-align: -.1em;
+				}
+			
+				.badges-inv {
+					visibility: hidden;
+				}
+			
+				.badges-topleft {
+					position: absolute !important;
+					top: 0px;
+					left: 0px;
+					transform: translate(-1.5rem, -1rem);
+				}
+			
+				.badge {
+					display: inline-block;
+					margin: 0 .05em 0 .1em;
+					position: relative;
+					height: 1.25rem;
+					vertical-align: middle;
+					transform: rotate(-15deg);
+				}
+			
+				img.badge {
+					-webkit-filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.3));
+					filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.3));
+				}
+			
+			
+			</style>
+
+		</head>
+
+		<body>
+
+			<div class="wrapper">
+
+				<div class="meta">
+					<div class="username_box">
+						<span class="badges badges-inv"></span><span class="badges badges-topleft"></span><strong><span class="name">KurosawaSP</span></strong>
+					</div>
+				</div>
+
+				<div class="message_box">
+					<span class="message">ยะโฮ~~</span>
+				</div>
+
+			</div> 
+
+			<div class="wrapper">
+
+				<div class="meta">
+					<div class="username_box">
+						<span class="badges badges-inv"></span><span class="badges badges-topleft"></span><strong><span class="name">StLucian</span></strong>
+					</div>
+				</div>
+
+				<div class="message_box">
+					<span class="message">สวัสดีครับ</span>
+				</div>
+
+			</div>
+			<div class="wrapper">
+
+				<div class="meta">
+					<div class="username_box">
+						<span class="badges badges-inv"></span><span class="badges badges-topleft"></span><strong><span class="name">KindnessNumberSix</span></strong>
+					</div>
+				</div>
+
+				<div class="message_box">
+					<span class="message">เอาความหิวมาฝาก</span>
+				</div>
+
+			</div>
+			<div class="wrapper">
+
+				<div class="meta">
+					<div class="username_box">
+						<span class="badges badges-inv"></span><span class="badges badges-topleft"></span><strong><span class="name">Lunyatic</span></strong>
+					</div>
+				</div>
+
+				<div class="message_box">
+					<span class="message">เกิน 😱</span>
+				</div>
+
+			</div>
+
+		</body>
+		<script>
+			document.ready(twemoji.parse(document.body));
+		</script>
+
+	</html>
