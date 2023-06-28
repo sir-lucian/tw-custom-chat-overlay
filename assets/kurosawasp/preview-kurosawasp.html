@@ -14,7 +14,7 @@
 				@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
 				html {
 					height: 100%;
-					width: 300px;
+					width: 500px;
 					overflow: hidden;
 					background-color: rgba(55, 55, 55, 1);
 					font-family: 'Itim', sans-serif;
@@ -70,12 +70,21 @@
 					background: rgb(162, 65, 107);
 					color: rgb(245, 198, 165);
 					font-weight: 700;
+					text-align: center;
+
+					white-space: nowrap;
+					overflow: hidden;
+					text-overflow: ellipsis;
+
+					max-width: -webkit-calc(100% - 50px);
+    				max-width:    -moz-calc(100% - 50px);
+    				max-width:         calc(100% - 50px);
 				}
 			
 				.meta {
 					font-size: 1rem;
-					text-align: right;
-					color: rgba(48, 48, 48);
+					text-align: center;
+					color: rgb(48, 48, 48);
 					position: relative;
 					z-index: 5;
 				}
@@ -86,8 +95,8 @@
 					margin: 0 .05em 0 .1em;
 					vertical-align: -.1em;
 					transform: translate(0, 0.05em);
-					-webkit-filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.3));
-					filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.3));
+					-webkit-filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.3));
+					filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.3));
 				}
 			
 				.badges {
