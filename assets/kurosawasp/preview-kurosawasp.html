@@ -41,20 +41,20 @@
 					/* Normal chatter background color -- Edit Here */
 					background: rgba(0, 0, 0, 0);
 					/* --- */
-					border-top: 2px dashed rgb(255, 119, 119);
+					border-top: 2px dashed #e27686;
 				}
 
 				.message_box {
 					margin: 0.5rem 0;
 					padding: 0.5rem;
 					/* Normal chatter background color -- Edit Here */
-					background: rgb(245, 198, 165);
+					background: #242424;
 					/* --- */
 					border-radius: 10px;
 
 					font-size: 1rem;
 					text-align: center;
-					color: rgba(48, 48, 48);
+					color: white;
 					word-wrap: break-word;
 					word-break: break-word;
 					z-index: 5;
@@ -67,8 +67,50 @@
 					left: 50%;
 					top: -0.25rem;
 					border-radius: 10px;
-					background: rgb(162, 65, 107);
-					color: rgb(245, 198, 165);
+					background: #724eb2;
+					color: white;
+					font-weight: 700;
+					text-align: center;
+
+					white-space: nowrap;
+					overflow: hidden;
+					text-overflow: ellipsis;
+
+					max-width: -webkit-calc(100% - 50px);
+    				max-width:    -moz-calc(100% - 50px);
+    				max-width:         calc(100% - 50px);
+				}
+
+				.username_box_sub {
+					position: absolute;
+					padding: 0.5rem;
+					transform: translate(-50%, -50%);
+					left: 50%;
+					top: -0.25rem;
+					border-radius: 10px;
+					background: #e86ad6;
+					color: white;
+					font-weight: 700;
+					text-align: center;
+
+					white-space: nowrap;
+					overflow: hidden;
+					text-overflow: ellipsis;
+
+					max-width: -webkit-calc(100% - 50px);
+    				max-width:    -moz-calc(100% - 50px);
+    				max-width:         calc(100% - 50px);
+				}
+
+				.username_box_streamer {
+					position: absolute;
+					padding: 0.5rem;
+					transform: translate(-50%, -50%);
+					left: 50%;
+					top: -0.25rem;
+					border-radius: 10px;
+					background: #ffd478;
+					color: #242424;
 					font-weight: 700;
 					text-align: center;
 
@@ -109,11 +151,11 @@
 					visibility: hidden;
 				}
 			
-				.badges-topleft {
+				.badges-topright {
 					position: absolute !important;
 					top: 0px;
-					left: 0px;
-					transform: translate(-1.5rem, -1rem);
+					right: 0px;
+					transform: translate(-2.5rem, -50%);
 				}
 			
 				.badge {
@@ -122,7 +164,7 @@
 					position: relative;
 					height: 1.25rem;
 					vertical-align: middle;
-					transform: rotate(-15deg);
+					transform: rotate(15deg);
 				}
 			
 				img.badge {
@@ -140,8 +182,8 @@
 			<div class="wrapper">
 
 				<div class="meta">
-					<div class="username_box">
-						<span class="badges badges-inv"></span><span class="badges badges-topleft"></span><strong><span class="name">KurosawaSP</span></strong>
+					<div class="username_box_streamer">
+						<strong><span class="name">KurosawaSP</span></strong><span class="badges badges-topright"></span>
 					</div>
 				</div>
 
@@ -154,8 +196,8 @@
 			<div class="wrapper">
 
 				<div class="meta">
-					<div class="username_box">
-						<span class="badges badges-inv"></span><span class="badges badges-topleft"></span><strong><span class="name">StLucian</span></strong>
+					<div class="username_box_sub">
+						<span class="badges"></span><strong><span class="name">StLucian</span></strong>
 					</div>
 				</div>
 
@@ -168,7 +210,7 @@
 
 				<div class="meta">
 					<div class="username_box">
-						<span class="badges badges-inv"></span><span class="badges badges-topleft"></span><strong><span class="name">KindnessNumberSix</span></strong>
+						<span class="badges badges-inv"></span><span class="badges"></span><strong><span class="name">KindnessNumberSix</span></strong>
 					</div>
 				</div>
 
@@ -181,7 +223,7 @@
 
 				<div class="meta">
 					<div class="username_box">
-						<span class="badges badges-inv"></span><span class="badges badges-topleft"></span><strong><span class="name">Lunyatic</span></strong>
+						<span class="badges badges-inv"></span><span class="badges"></span><strong><span class="name">Lunyatic</span></strong>
 					</div>
 				</div>
 
