@@ -1,241 +1,248 @@
 <!DOCTYPE html>
-	<html>
+<html>
 
-		<head>
+<head>
 
-			<meta charset="UTF-8">
-			<meta http-equiv="X-UA-Compatible" content="IE=edge">
-			<meta name="viewport" content="width=device-width, initial-scale=1.0">
-			<title>Twitch Chat Overlay by Sir Lucian - Made for KurosawaSP</title>
-			<script src="https://unpkg.com/twemoji@latest/dist/twemoji.min.js" crossorigin="anonymous"></script>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Twitch Chat Overlay by Sir Lucian - Made for KurosawaSP</title>
+	<script src="https://unpkg.com/twemoji@latest/dist/twemoji.min.js" crossorigin="anonymous"></script>
 
-			<style>
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@100..900&family=Noto+Sans+Thai:wght@100..900&display=swap');
 
-				@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
-				html {
-					height: 100%;
-					width: 500px;
-					overflow: hidden;
-					background-color: rgba(55, 55, 55, 1);
-					font-family: 'Itim', sans-serif;
-				}
-			
-				.colon {
-					display: none;
-				}
-			
-				#log {
-					display: block;
-					position: absolute;
-					bottom: 0;
-					left: 0;
-					width: 100%;
-				}
-			
-				/* Message Box */
-			
-				.wrapper {
-					position: relative;
-					margin: 1.25rem 0.25rem 0.25rem;
-					padding: 0.25rem;
-					/* Normal chatter background color -- Edit Here */
-					background: rgba(0, 0, 0, 0);
-					/* --- */
-					border-top: 2px dashed #e27686;
-				}
+		html {
+			height: 100%;
+			overflow: hidden;
+			/*background-color: rgba(55, 55, 55, 1);*/
+			font-size: 20px;
+			font-family: 'Noto Sans Thai', sans-serif;
+		}
 
-				.message_box {
-					margin: 0.5rem 0;
-					padding: 0.5rem;
-					/* Normal chatter background color -- Edit Here */
-					background: #242424;
-					/* --- */
-					border-radius: 10px;
+		.colon {
+			display: none;
+		}
 
-					font-size: 1rem;
-					text-align: center;
-					color: white;
-					word-wrap: break-word;
-					word-break: break-word;
-					z-index: 5;
-				}
+		#log {
+			display: block;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+		}
 
-				.username_box {
-					position: absolute;
-					padding: 0.5rem;
-					transform: translate(-50%, -50%);
-					left: 50%;
-					top: -0.25rem;
-					border-radius: 10px;
-					background: #724eb2;
-					color: white;
-					font-weight: 700;
-					text-align: center;
+		/* Message Box */
 
-					white-space: nowrap;
-					overflow: hidden;
-					text-overflow: ellipsis;
+		.wrapper {
+			position: relative;
+			margin: 1.25rem 0.25rem 0.25rem;
+			padding: 0.05rem;
+			/* Normal chatter background color -- Edit Here */
+			background: rgba(0, 0, 0, 0);
+			/* --- */
+		}
 
-					max-width: -webkit-calc(100% - 50px);
-    				max-width:    -moz-calc(100% - 50px);
-    				max-width:         calc(100% - 50px);
-				}
+		.message_box {
+			margin: 0.5rem 0;
+			padding: 0.5rem 0.5rem 0.15rem 0.5rem;
+			/* Normal chatter background color -- Edit Here */
+			background: #242424;
+			background: linear-gradient(90deg, #424242 0%, #242424 100%);
+			/* --- */
+			border-radius: 5px;
+			font-size: 1rem;
+			text-align: left;
+			color: white;
+			word-wrap: break-word;
+			word-break: break-word;
+			box-shadow: 2px 2px 3px #121212;
+			z-index: 5;
+		}
 
-				.username_box_sub {
-					position: absolute;
-					padding: 0.5rem;
-					transform: translate(-50%, -50%);
-					left: 50%;
-					top: -0.25rem;
-					border-radius: 10px;
-					background: #e86ad6;
-					color: white;
-					font-weight: 700;
-					text-align: center;
+		.username_box {
+			position: absolute;
+			padding: 0.25rem 0.75rem;
+			transform: translate(0, -50%);
+			left: -0.25rem;
+			top: -0.15rem;
+			border-radius: 5px;
+			background: #c8c8c8;
+			background: linear-gradient(90deg, #c8c8c8 0%, #fefefe 45%, #c8c8c8 100%);
+			color: black;
+			text-align: center;
+			font-weight: 700;
+			font-family: 'Urbanist', sans-serif;
+			box-shadow: 1px 1px 3px #121212;
 
-					white-space: nowrap;
-					overflow: hidden;
-					text-overflow: ellipsis;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
 
-					max-width: -webkit-calc(100% - 50px);
-    				max-width:    -moz-calc(100% - 50px);
-    				max-width:         calc(100% - 50px);
-				}
+			max-width: -webkit-calc(100% - 6rem);
+			max-width: -moz-calc(100% - 6rem);
+			max-width: calc(100% - 6rem);
+		}
 
-				.username_box_streamer {
-					position: absolute;
-					padding: 0.5rem;
-					transform: translate(-50%, -50%);
-					left: 50%;
-					top: -0.25rem;
-					border-radius: 10px;
-					background: #ffd478;
-					color: #242424;
-					font-weight: 700;
-					text-align: center;
+		.username_box_sub {
+			position: absolute;
+			padding: 0.25rem 0.75rem;
+			transform: translate(0, -50%);
+			left: -0.25rem;
+			top: -0.15rem;
+			border-radius: 5px;
+			color: black;
+			background: #ffd75a;
+			background: linear-gradient(90deg, #ffd75a 0%, #fff5d6 45%, #ffd75a 100%);
+			text-align: center;
+			font-weight: 700;
+			font-family: 'Urbanist', sans-serif;
+			box-shadow: 1px 1px 3px #121212;
 
-					white-space: nowrap;
-					overflow: hidden;
-					text-overflow: ellipsis;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
 
-					max-width: -webkit-calc(100% - 50px);
-    				max-width:    -moz-calc(100% - 50px);
-    				max-width:         calc(100% - 50px);
-				}
-			
-				.meta {
-					font-size: 1rem;
-					text-align: center;
-					color: rgb(48, 48, 48);
-					position: relative;
-					z-index: 5;
-				}
-			
-				.emoji {
-					width: 1.25em;
-					height: 1.25em;
-					margin: 0 .05em 0 .1em;
-					vertical-align: -.1em;
-					transform: translate(0, 0.05em);
-					-webkit-filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.3));
-					filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.3));
-				}
-			
-				.badges {
-					display: inline-block;
-					z-index: 3;
-					vertical-align: -.1em;
-				}
-			
-				.badges-inv {
-					visibility: hidden;
-				}
-			
-				.badges-topright {
-					position: absolute !important;
-					top: 0px;
-					right: 0px;
-					transform: translate(-2.5rem, -50%);
-				}
-			
-				.badge {
-					display: inline-block;
-					margin: 0 .05em 0 .1em;
-					position: relative;
-					height: 1.25rem;
-					vertical-align: middle;
-					transform: rotate(15deg);
-				}
-			
-				img.badge {
-					-webkit-filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.3));
-					filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.3));
-				}
-			
-			
-			</style>
+			max-width: -webkit-calc(100% - 6rem);
+			max-width: -moz-calc(100% - 6rem);
+			max-width: calc(100% - 6rem);
+		}
 
-		</head>
+		.username_box_streamer {
+			position: absolute;
+			padding: 0.25rem 0.75rem;
+			transform: translate(0, -50%);
+			left: -0.25rem;
+			top: -0.15rem;
+			border-radius: 5px;
+			background: #3793ff;
+			background: linear-gradient(90deg, #ff7cd1 0%, #3793ff 100%);
+			color: white;
+			text-align: center;
+			font-weight: 700;
+			font-family: 'Urbanist', sans-serif;
+			box-shadow: 1px 1px 3px #121212;
 
-		<body>
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
 
-			<div class="wrapper">
+			max-width: -webkit-calc(100% - 6rem);
+			max-width: -moz-calc(100% - 6rem);
+			max-width: calc(100% - 6rem);
+		}
 
-				<div class="meta">
-					<div class="username_box_streamer">
-						<strong><span class="name">KurosawaSP</span></strong><span class="badges badges-topright"></span>
-					</div>
-				</div>
+		.meta {
+			font-size: 1rem;
+			text-align: center;
+			color: rgb(48, 48, 48);
+			position: relative;
+			z-index: 5;
+		}
 
-				<div class="message_box">
-					<span class="message">ยะโฮ~~</span>
-				</div>
+		.emoji {
+			width: 1.25em;
+			height: 1.25em;
+			margin: 0 .05em 0 .1em;
+			vertical-align: -.1em;
+			transform: translate(0, 0.05em);
+			-webkit-filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.3));
+			filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.3));
+		}
 
-			</div> 
+		.badges {
+			display: inline-block;
+			z-index: 3;
+			vertical-align: -.1em;
+		}
 
-			<div class="wrapper">
+		.badges-inv {
+			visibility: hidden;
+		}
 
-				<div class="meta">
-					<div class="username_box_sub">
-						<span class="badges"></span><strong><span class="name">StLucian</span></strong>
-					</div>
-				</div>
+		.badges-topright {
+			position: absolute !important;
+			top: 0px;
+			right: 0px;
+			transform: translate(-2.5rem, -50%);
+		}
 
-				<div class="message_box">
-					<span class="message">สวัสดีครับ</span>
-				</div>
+		.badge {
+			display: inline-block;
+			margin: 0 .05em 0 .1em;
+			position: relative;
+			height: 1.25rem;
+			vertical-align: middle;
+			transform: rotate(15deg);
+		}
 
+		img.badge {
+			-webkit-filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.3));
+			filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.3));
+		}
+	</style>
+
+</head>
+
+<body>
+
+	<div class="wrapper">
+
+		<div class="meta">
+			<div class="username_box_streamer">
+				<span class="name">KurosawaSP</span>
 			</div>
-			<div class="wrapper">
+		</div>
 
-				<div class="meta">
-					<div class="username_box">
-						<span class="badges badges-inv"></span><span class="badges"></span><strong><span class="name">KindnessNumberSix</span></strong>
-					</div>
-				</div>
+		<div class="message_box">
+			<span class="message">ยะโฮ~~</span>
+		</div>
 
-				<div class="message_box">
-					<span class="message">เอาความหิวมาฝาก</span>
-				</div>
+	</div>
 
+	<div class="wrapper">
+
+		<div class="meta">
+			<div class="username_box_sub">
+				<span class="name">StLucian</span>
 			</div>
-			<div class="wrapper">
+		</div>
 
-				<div class="meta">
-					<div class="username_box">
-						<span class="badges badges-inv"></span><span class="badges"></span><strong><span class="name">Lunyatic</span></strong>
-					</div>
-				</div>
+		<div class="message_box">
+			<span class="message">สวัสดีครับ</span>
+		</div>
 
-				<div class="message_box">
-					<span class="message">เกิน 😱</span>
-				</div>
+	</div>
+	<div class="wrapper">
 
+		<div class="meta">
+			<div class="username_box">
+				<span class="name">KindnessNumberSix</span>
 			</div>
+		</div>
 
-		</body>
-		<script>
-			document.ready(twemoji.parse(document.body));
-		</script>
+		<div class="message_box">
+			<span class="message">เอาความหิวมาฝาก</span>
+		</div>
 
-	</html>
+	</div>
+	<div class="wrapper">
+
+		<div class="meta">
+			<div class="username_box">
+				<span class="name">Lunyatic</span>
+			</div>
+		</div>
+
+		<div class="message_box">
+			<span class="message">เกิน 😭💢</span>
+		</div>
+
+	</div>
+
+</body>
+<script>
+	twemoji.parse(document.body);
+</script>
+
+</html>
